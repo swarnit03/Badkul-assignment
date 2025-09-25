@@ -13,8 +13,7 @@ public class EndDateAfterStartDateValidator implements ConstraintValidator<EndDa
         if (dto == null) return true;
         LocalDate s = dto.getStartDate();
         LocalDate e = dto.getEndDate();
-        if (s == null || e == null) return true; // nulls handled by @NotNull on fields
-        // allow equal dates (single-day trip) or end after start
+        if (s == null || e == null) return true; 
         return !e.isBefore(s);
     }
 }
